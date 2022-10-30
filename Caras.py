@@ -22,24 +22,32 @@ from math import *
 
 
 shape("turtle")
-speed(6)
+speed(100)
 colormode(255)
+pensize(1)
+lados = 13
+anguloCentral = 360/lados
+mirar = 180 / lados + 90
+j = 180 / lados
 
-for i in range(8): 
+seth(270)
+for i in range(lados): 
     forward(100) 
     backward(100) 
-    right(45)
+    right(anguloCentral)
+    color(randint(0,255), randint(0,255), randint(0,255))
 
-sen = 0.3826834323650897717284599840304
+sen = sin(j*pi/180)
 ap = 2 * 100 * sen
 b = 0
 
 seth(270)
 goto(0,-100)
-right(112.5)
-for i in range (8):
+right(mirar)
+for i in range (lados):
   forward(2 * 100 * sen)
-  right(45)
+  right(anguloCentral)
+  color(randint(0,255), randint(0,255), randint(0,255))
 
 
 for x in range(19):
@@ -47,10 +55,12 @@ for x in range(19):
   ap = 2 * b * sen
   seth(270)
   goto(0,-95+x*5)
-  right(112.5)
-  for i in range (8):
+  right(mirar)
+  for i in range (lados):
+    color(randint(0,255), randint(0,255), randint(0,255))
     forward(ap)
-    right(45)
+    right(anguloCentral)
+    
 
 hideturtle()
 sleep(5)
